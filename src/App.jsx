@@ -3,7 +3,8 @@ import LoginPage from "./pages/LoginPage"
 import SignUp from "./pages/SignUp"
 import Categories from "./pages/Categories"
 import ListCategory from "./pages/ListCategory"
-
+import Contact from "./pages/Contact"
+import About from "./pages/About"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
@@ -17,6 +18,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/list-category" element={<ListCategory />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );

@@ -31,8 +31,14 @@ const Header = () => {
             </a>
           </Link>
           <a className="mr-5 hover:text-gray-900 cursor-pointer">Menüler</a>
-          <a className="mr-5 hover:text-gray-900 cursor-pointer">Hakkımızda</a>
-          <a className="mr-5 hover:text-gray-900 cursor-pointer">İletişim</a>
+          <Link to="/about">
+            <a className="mr-5 hover:text-gray-900 cursor-pointer">
+              Hakkımızda
+            </a>
+          </Link>
+          <Link to="/contact">
+            <a className="mr-5 hover:text-gray-900 cursor-pointer">İletişim</a>
+          </Link>
         </nav>
         <Link to="/login">
           <button className="inline-flex items-center text-3xl hover:text-gray-900">
