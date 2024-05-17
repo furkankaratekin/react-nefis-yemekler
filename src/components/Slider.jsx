@@ -8,7 +8,7 @@ const Slider = () => {
       <Carousel showThumbs={false}>
         <div className="h-48 sm:h-64 md:h-80 lg:h-96">
           <img
-            src="https://i.nefisyemektarifleri.com/2023/04/13/halka-kebabi.jpg"
+            src="assets/2.jpeg"
             alt="Slider Image 1"
             className="w-full h-full object-cover"
           />
@@ -22,7 +22,7 @@ const Slider = () => {
         </div>
         <div className="h-48 sm:h-64 md:h-80 lg:h-96">
           <img
-            src="https://i.nefisyemektarifleri.com/2023/04/13/halka-kebabi.jpg"
+            src="assets/2.jpeg"
             alt="Slider Image 3"
             className="w-full h-full object-cover"
           />
