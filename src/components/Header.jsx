@@ -34,6 +34,9 @@ const Header = () => {
           <Link to="/menus" className="mr-5 hover:text-gray-900 cursor-pointer">
             Menüler
           </Link>
+          <Link to="/what-to-cook" className="mr-5 hover:text-gray-900 cursor-pointer">
+            Bugün Ne Pişirsem ? 
+          </Link>
           <Link to="/about" className="mr-5 hover:text-gray-900 cursor-pointer">
             Hakkımızda
           </Link>

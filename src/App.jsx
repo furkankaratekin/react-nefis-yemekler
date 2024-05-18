@@ -6,6 +6,7 @@ import ListCategoryPage from "./pages/ListCategoryPage"
 import ContactPage from "./pages/ContactPage"
 import AboutPage from "./pages/AboutPage"
 import MenusPage from "./pages/MenusPage"
+import WhatToCookPage from "./pages/WhatToCookPage"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/menus" element={<MenusPage />} />
+        <Route path="/what-to-cook" element={<WhatToCookPage />} />
       </Routes>
     </Router>
   );
