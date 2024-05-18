@@ -5,7 +5,7 @@ import Gallery from "../components/Gallery";
 import GalleryCategory from "../components/GalleryCategory";
 
 
-const Categories = () => {
+const CategoriesPage = () => {
   return <>
   <Header></Header>
   <GalleryCategory></GalleryCategory>
@@ -14,4 +14,4 @@ const Categories = () => {
   </>;
 };
 
-export default Categories;
+export default CategoriesPage;

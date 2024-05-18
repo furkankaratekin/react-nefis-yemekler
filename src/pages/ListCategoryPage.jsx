@@ -1,18 +1,17 @@
 import React from "react";
 import Header from "../components/Header";
-import Slider from "../components/Slider";
-import Gallery from "../components/Gallery";
 import Footer from "../components/Footer";
+import CategoryRecipe from "../components/CategoryRecipe";
 
-const Home = () => {
+CategoryRecipe;
+const ListCategoryPage = () => {
   return (
     <>
       <Header></Header>
-      <Slider></Slider>
-      <Gallery></Gallery>
+      <CategoryRecipe />
       <Footer></Footer>
     </>
   );
 };
 
-export default Home;
+export default ListCategoryPage;

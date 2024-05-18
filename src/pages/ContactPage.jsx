@@ -3,15 +3,16 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MapContact from '../components/MapContact'
 
-const Contact = () => {
+const ContactPage = () => {
   return (
     <>
-    <Header></Header>
-    <MapContact></MapContact>
-    <Footer></Footer>
-
+      <Header></Header>
+      <MapContact></MapContact>
+      <div className='mt-12'>
+        <Footer></Footer>
+      </div>
     </>
-  )
+  );
 }
 
-export default Contact
+export default ContactPage

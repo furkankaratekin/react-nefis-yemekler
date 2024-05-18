@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import AboutWrite from '../components/AboutWrite'
 
-const About = () => {
+const AboutPage = () => {
   return (
  <>
  <Header></Header>
@@ -13,4 +13,4 @@ const About = () => {
  </> )
 }
 
-export default About
+export default AboutPage

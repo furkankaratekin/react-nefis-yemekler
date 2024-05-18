@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const GalleryCategory = () => {
+const MenuCategory = () => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
           <div className="lg:w-1/4 sm:w-1/2 p-4">
-            <Link to="/list-category">
+            <Link to="/">
               <div className="relative group">
                 <img
                   alt="mercimek"
@@ -16,7 +16,7 @@ const GalleryCategory = () => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h1 className="text-2xl font-medium text-white bg-opacity-50 px-2 py-1">
-                    Çorbalar
+                    Kahvaltı Menüsü
                   </h1>
                 </div>
               </div>
@@ -32,7 +32,7 @@ const GalleryCategory = () => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h1 className="text-2xl font-medium text-white bg-opacity-50 px-2 py-1">
-                    Pizza
+                    Akşam yemeği menüsü
                   </h1>
                 </div>
               </div>
@@ -48,7 +48,7 @@ const GalleryCategory = () => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h1 className="text-2xl font-medium text-white bg-opacity-50 px-2 py-1">
-                    Hamur İşi
+                    Ramazan Menüsü
                   </h1>
                 </div>
               </div>
@@ -64,7 +64,7 @@ const GalleryCategory = () => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h1 className="text-2xl font-medium text-white bg-opacity-50 px-2 py-1">
-                    Salatalar
+                    Doğum Günü Menüsü
                   </h1>
                 </div>
               </div>
@@ -80,7 +80,7 @@ const GalleryCategory = () => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h1 className="text-2xl font-medium text-white bg-opacity-50 px-2 py-1">
-                    Makarnalar
+                   Yılbaşı Menüsü
                   </h1>
                 </div>
               </div>
@@ -140,4 +140,4 @@ const GalleryCategory = () => {
   );
 };
 
-export default GalleryCategory;
+export default MenuCategory;

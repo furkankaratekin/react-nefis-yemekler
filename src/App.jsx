@@ -1,11 +1,13 @@
-import Home from "./pages/Home"
+import HomePage from "./pages/HomePage"
 import LoginPage from "./pages/LoginPage"
-import SignUp from "./pages/SignUp"
-import Categories from "./pages/Categories"
-import ListCategory from "./pages/ListCategory"
-import Contact from "./pages/Contact"
-import About from "./pages/About"
+import SignUpPage from "./pages/SignUpPage"
+import CategoriesPage from "./pages/CategoriesPage"
+import ListCategoryPage from "./pages/ListCategoryPage"
+import ContactPage from "./pages/ContactPage"
+import AboutPage from "./pages/AboutPage"
+import MenusPage from "./pages/MenusPage"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 
 function App() {
@@ -13,13 +15,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/category" element={<Categories />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/category" element={<CategoriesPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/list-category" element={<ListCategory />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/list-category" element={<ListCategoryPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/menus" element={<MenusPage />} />
       </Routes>
     </Router>
   );
