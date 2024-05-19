@@ -14,6 +14,7 @@ import YaprakSarmaPage from "./pages/InMenuForWhatToCook/YaprakSarmaPage"
 import ListRecipePage from "./pages/ListRecipePage";
 import ListMenuPage from "./pages/ListMenuPage"
 import ProfilePage from "./pages/ProfilePage"
+import PageNotFoundPage from "./pages/PageNotFoundPage"
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/pilav" element={<MısırlıPilavPage />} />
         <Route path="/salata" element={<SezarSalataPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="*" element={<PageNotFoundPage />} />
       </Routes>
     </Router>
   );
