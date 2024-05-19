@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const GalleryCategory = () => {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container px-5 py-12 mx-auto">
         <div className="flex flex-wrap -m-4">
           <div className="lg:w-1/4 sm:w-1/2 p-4">
             <Link to="/list-category">

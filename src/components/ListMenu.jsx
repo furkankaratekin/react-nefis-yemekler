@@ -1,13 +1,32 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const WhatToCook = () => {
+const ListMenu = () => {
   return (
     <section className="text-gray-600 body-font">
+      <p className="text-center mt-20 text-3xl text-blue-950 font-serif">
+        {" "}
+        Menu Adı
+      </p>
       <div className="container px-5 py-24 mx-auto">
+        <p className="mb-20">
+          Açıklama olacak Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Velit corrupti voluptates aspernatur obcaecati laborum inventore
+          cum porro optio, quis ex perferendis adipisci, quidem nobis quasi
+          ullam eaque ipsam minus? Ipsa eum dolorum magni, quisquam odit nisi
+          quaerat enim deleniti est officia, fugiat, incidunt quam facere? Non
+          eaque, delectus voluptatibus in eius odio. Aspernatur autem veniam
+          vero ipsum excepturi quo deleniti, commodi, in quidem iste quaerat.
+          Laudantium sit quis odit natus nobis dignissimos ducimus molestiae
+          impedit beatae incidunt dolores unde, tempora eum adipisci libero ea
+          corrupti error nostrum voluptatem earum tempore voluptates delectus
+          inventore. Rerum explicabo perspiciatis nesciunt voluptates quidem
+          temporibus.
+        </p>
+
         <div className="flex flex-wrap -m-4">
           <div className="lg:w-1/4 sm:w-1/2 p-4">
-            <Link to="/tarhana">
+            <Link to="/list-recipe">
               <div className="relative group">
                 <img
                   alt="mercimek"
@@ -16,14 +35,14 @@ const WhatToCook = () => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h1 className="text-2xl font-medium text-white bg-opacity-50 px-2 py-1">
-                    Tarhana Çorbası
+                    Tarif-1
                   </h1>
                 </div>
               </div>
             </Link>
           </div>
           <div className="lg:w-1/4 sm:w-1/2 p-4">
-            <Link to="/sarma">
+            <Link to="/list-recipe">
               <div className="relative group">
                 <img
                   alt="domates"
@@ -32,14 +51,14 @@ const WhatToCook = () => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h1 className="text-2xl font-medium text-white bg-opacity-50 px-2 py-1">
-                    Zeytinyağlı Yaprak Sarma
+                    Tarif-2
                   </h1>
                 </div>
               </div>
             </Link>
           </div>
           <div className="lg:w-1/4 sm:w-1/2 p-4">
-            <Link to="/pilav">
+            <Link to="/list-recipe">
               <div className="relative group">
                 <img
                   alt="ezogelin"
@@ -48,14 +67,14 @@ const WhatToCook = () => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h1 className="text-2xl font-medium text-white bg-opacity-50 px-2 py-1">
-                    Mısırlı Pilav
+                    Tarif-3
                   </h1>
                 </div>
               </div>
             </Link>
           </div>
           <div className="lg:w-1/4 sm:w-1/2 p-4">
-            <Link to="/salata">
+            <Link to="/list-recipe">
               <div className="relative group">
                 <img
                   alt="iskembe"
@@ -64,7 +83,7 @@ const WhatToCook = () => {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h1 className="text-2xl font-medium text-white bg-opacity-50 px-2 py-1">
-                    Sezar Salata
+                    Tarif-4
                   </h1>
                 </div>
               </div>
@@ -76,4 +95,4 @@ const WhatToCook = () => {
   );
 }
 
-export default WhatToCook
+export default ListMenu

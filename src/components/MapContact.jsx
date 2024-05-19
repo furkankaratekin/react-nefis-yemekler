@@ -28,12 +28,11 @@ const MapContact = () => {
 
   return (
     <section className="text-gray-600 body-font relative">
-      <div className="container px-5 py-24 mx-auto flex justify-center">
+      <div className="container px-5 py-16 mx-auto flex justify-center">
         <div className="lg:w-1/2 md:w-2/3 bg-white flex flex-col w-full md:py-8 mt-8 md:mt-0">
           <h2 className="text-gray-900 text-2xl mb-1 font-medium title-font text-center">
               
           </h2>
-          <p className="leading-relaxed mb-5 text-gray-600 font-bold"></p>
           <form onSubmit={onSubmit}>
             <div className="relative mb-4">
               <label

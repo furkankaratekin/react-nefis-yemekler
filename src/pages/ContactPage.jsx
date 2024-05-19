@@ -7,8 +7,11 @@ const ContactPage = () => {
   return (
     <>
       <Header></Header>
+      <p className="text-center mt-20 font-serif text-3xl">
+        Bizimle İletişime Geçin !{" "}
+      </p>
       <MapContact></MapContact>
-      <div className='mt-12'>
+      <div className='mt-4'>
         <Footer></Footer>
       </div>
     </>

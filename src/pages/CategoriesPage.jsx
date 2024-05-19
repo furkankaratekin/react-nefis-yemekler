@@ -6,12 +6,16 @@ import GalleryCategory from "../components/GalleryCategory";
 
 
 const CategoriesPage = () => {
-  return <>
-  <Header></Header>
-  <GalleryCategory></GalleryCategory>
-  <Footer></Footer>
-  
-  </>;
+  return (
+    <>
+      <Header></Header>
+      <h2 className="text-center mt-16 text-2xl font-serif">
+        Kategoriler
+      </h2>
+      <GalleryCategory></GalleryCategory>
+      <Footer></Footer>
+    </>
+  );
 };
 
 export default CategoriesPage;

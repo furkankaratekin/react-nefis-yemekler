@@ -7,11 +7,14 @@ import MenuCategory from '../components/MenuCategory'
 const MenusPage = () => {
   return (
     <>
-    <Header/>
-    <MenuCategory/>
-    <Footer/>
+      <Header />
+      <h2 className="text-center mt-16 text-2xl font-serif">
+        Menüler
+      </h2>
+      <MenuCategory />
+      <Footer />
     </>
-  )
+  );
 }
 
 export default MenusPage

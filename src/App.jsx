@@ -7,6 +7,14 @@ import ContactPage from "./pages/ContactPage"
 import AboutPage from "./pages/AboutPage"
 import MenusPage from "./pages/MenusPage"
 import WhatToCookPage from "./pages/WhatToCookPage"
+import MısırlıPilavPage from "./pages/InMenuForWhatToCook/MısırlıPilavPage"
+import SezarSalataPage from "./pages/InMenuForWhatToCook/SezarSalataPage"
+import TarhanaPage from "./pages/InMenuForWhatToCook/TarhanaPage"
+import YaprakSarmaPage from "./pages/InMenuForWhatToCook/YaprakSarmaPage"
+import ListRecipePage from "./pages/ListRecipePage";
+import ListMenuPage from "./pages/ListMenuPage"
+import ProfilePage from "./pages/ProfilePage"
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
@@ -21,10 +29,17 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/list-category" element={<ListCategoryPage />} />
+        <Route path="/list-recipe" element={<ListRecipePage />} />
+        <Route path="/list-menu" element={<ListMenuPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/menus" element={<MenusPage />} />
         <Route path="/what-to-cook" element={<WhatToCookPage />} />
+        <Route path="/tarhana" element={<TarhanaPage />} />
+        <Route path="/sarma" element={<YaprakSarmaPage />} />
+        <Route path="/pilav" element={<MısırlıPilavPage />} />
+        <Route path="/salata" element={<SezarSalataPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>
   );
