@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const recipes = [
@@ -20,10 +21,20 @@ const Profile = () => {
             </h3>
             <h3 className="text-lg font-semibold">Yaş: 30</h3>
           </div>
-          <button className="px-8 bg-red-500 text-white py-2 rounded mb-2">
-            Profili Sil
-          </button>
-
+          <div className="flex flex-col space-y-2 md:w-1/3 lg:w-1/3">
+            <button className="px-8 bg-red-600 hover:bg-red-700 text-white py-2 rounded">
+              Profili Sil
+            </button>
+            <button className="px-8 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
+              Profili Güncelle
+            </button>
+            <Link
+              to="/create-recipe"
+              className="px-8 bg-green-600 hover:bg-green-700 text-white py-2 rounded inline-block text-center"
+            >
+              Yeni Tarif Oluştur
+            </Link>
+          </div>
         </div>
       </div>
 
