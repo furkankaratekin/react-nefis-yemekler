@@ -1,0 +1,3 @@
+Servisimiizin url'i
+
+https://yemek-api-vercel.onrender.com

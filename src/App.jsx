@@ -31,7 +31,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/list-category" element={<ListCategoryPage />} />
         <Route path="/list-recipe" element={<ListRecipePage />} />
-        <Route path="/list-menu" element={<ListMenuPage />} />
+        <Route path="/list-menu/:menuId" element={<ListMenuPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/menus" element={<MenusPage />} />
