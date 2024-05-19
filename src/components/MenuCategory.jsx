@@ -22,7 +22,7 @@ const MenuCategory = () => {
         <div className="flex flex-wrap -m-4">
           {menus.map((menu) => (
             <div key={menu._id} className="lg:w-1/4 sm:w-1/2 p-4">
-              <Link to="/list-menu/${menu._id}">
+              <Link to={`/list-menu/${menu._id}`}>
                 <div className="relative group">
                   <img
                     alt={menu.name}
