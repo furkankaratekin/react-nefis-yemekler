@@ -1,8 +1,20 @@
 import React from "react";
 import { CgProfile } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const isLoggedIn = !!localStorage.getItem("token");
+
+  const handleProfileClick = () => {
+    if (isLoggedIn) {
+      navigate("/profile");
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <header className="text-gray-600 body-font sticky top-0 bg-white shadow-md z-10">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -34,8 +46,11 @@ const Header = () => {
           <Link to="/menus" className="mr-5 hover:text-gray-900 cursor-pointer">
             Menüler
           </Link>
-          <Link to="/what-to-cook" className="mr-5 hover:text-gray-900 cursor-pointer">
-            Bugün Ne Pişirsem ? 
+          <Link
+            to="/what-to-cook"
+            className="mr-5 hover:text-gray-900 cursor-pointer"
+          >
+            Bugün Ne Pişirsem ?
           </Link>
           <Link to="/about" className="mr-5 hover:text-gray-900 cursor-pointer">
             Hakkımızda
@@ -47,11 +62,12 @@ const Header = () => {
             İletişim
           </Link>
         </nav>
-        <Link to="/login">
-          <button className="inline-flex items-center text-3xl hover:text-gray-900 ml-8">
-            <CgProfile />
-          </button>
-        </Link>
+        <button
+          onClick={handleProfileClick}
+          className="inline-flex items-center text-3xl hover:text-gray-900 ml-8"
+        >
+          <CgProfile />
+        </button>
       </div>
     </header>
   );
