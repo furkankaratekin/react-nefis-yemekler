@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const CreateRecipe = () => {
   const [formData, setFormData] = useState({
     name: "",
-    picture: "",
+    pictureUrl: "",
     category: "",
     youtube_link: "",
     ingredients: [""],
     recipe: "",
     calorie: "",
-    content_photos: [""],
+    contentPhotoUrls: [""],
   });
 
   const [errors, setErrors] = useState({
@@ -39,36 +40,6 @@ const CreateRecipe = () => {
     }));
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setFormData((prevData) => ({
-        ...prevData,
-        picture: reader.result,
-      }));
-    };
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleContentPhotoChange = (index, e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const updatedContentPhotos = [...formData.content_photos];
-      updatedContentPhotos[index] = reader.result;
-      setFormData((prevData) => ({
-        ...prevData,
-        content_photos: updatedContentPhotos,
-      }));
-    };
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
-
   const handleIngredientChange = (index, value) => {
     const updatedIngredients = [...formData.ingredients];
     updatedIngredients[index] = value;
@@ -85,20 +56,55 @@ const CreateRecipe = () => {
     }));
   };
 
-  const addContentPhoto = () => {
+  const handleContentPhotoUrlChange = (index, value) => {
+    const updatedContentPhotoUrls = [...formData.contentPhotoUrls];
+    updatedContentPhotoUrls[index] = value;
     setFormData((prevData) => ({
       ...prevData,
-      content_photos: [...prevData.content_photos, ""],
+      contentPhotoUrls: updatedContentPhotoUrls,
+    }));
+  };
+
+  const addContentPhotoUrl = () => {
+    setFormData((prevData) => ({
+      ...prevData,
+      contentPhotoUrls: [...prevData.contentPhotoUrls, ""],
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!errors.calorie) {
-      console.log(formData);
-      toast.success("Başarılı bir şekilde tarif eklendi!");
+      const token = localStorage.getItem("token");
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      };
+
+      const dataToSend = {
+        ...formData,
+        content_photos: formData.contentPhotoUrls,
+      };
+
+      axios
+        .post(
+          "https://yemek-api-vercel.onrender.com/api/recipe/add",
+          dataToSend,
+          {
+            headers,
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          toast.success("Başarılı bir şekilde tarif eklendi!");
+        })
+        .catch((error) => {
+          console.error("There was an error submitting the recipe:", error);
+          toast.error("Tarif eklenirken bir hata oluştu.");
+        });
     } else {
       console.error("Please fix the errors before submitting");
+      toast.error("Lütfen hataları düzeltin ve tekrar deneyin.");
     }
   };
 
@@ -122,21 +128,15 @@ const CreateRecipe = () => {
         </div>
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">
-            Tarifin Resimi
+            Tarifin Resim URL'si
           </label>
           <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
+            type="text"
+            name="pictureUrl"
+            value={formData.pictureUrl}
+            onChange={handleChange}
             className="mt-1 p-2 w-full border border-gray-300 rounded"
           />
-          {formData.picture && (
-            <img
-              src={formData.picture}
-              alt="Selected"
-              className="mt-1 w-full h-auto"
-            />
-          )}
         </div>
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">
@@ -148,15 +148,15 @@ const CreateRecipe = () => {
             onChange={handleChange}
             className="mt-1 p-2 w-full border border-gray-300 rounded"
           >
-            <option value="">Select a category</option>
-            <option value="category1">Category 1</option>
-            <option value="category2">Category 2</option>
-            <option value="category3">Category 3</option>
-            <option value="category4">Category 4</option>
-            <option value="category5">Category 5</option>
-            <option value="category6">Category 6</option>
-            <option value="category7">Category 7</option>
-            <option value="category8">Category 8</option>
+            <option value="">Kategori Seçiniz</option>
+            <option value="category1">Kategori 1</option>
+            <option value="category2">Kategori 2</option>
+            <option value="category3">Kategori 3</option>
+            <option value="category4">Kategori 4</option>
+            <option value="category5">Kategori 5</option>
+            <option value="category6">Kategori 6</option>
+            <option value="category7">Kategori 7</option>
+            <option value="category8">Kategori 8</option>
           </select>
         </div>
         <div className="mb-4">
@@ -222,31 +222,25 @@ const CreateRecipe = () => {
         </div>
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">
-            Tarifin Fotoğrafları
+            Tarifin Fotoğraf URL'leri
           </label>
-          {formData.content_photos.map((photo, index) => (
-            <div key={index} className="mb-2">
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => handleContentPhotoChange(index, e)}
-                className="mt-1 p-2 w-full border border-gray-300 rounded"
-              />
-              {photo && (
-                <img
-                  src={photo}
-                  alt={`Content ${index}`}
-                  className="mt-1 w-full h-auto"
-                />
-              )}
-            </div>
+          {formData.contentPhotoUrls.map((photoUrl, index) => (
+            <input
+              key={index}
+              type="text"
+              value={photoUrl}
+              onChange={(e) =>
+                handleContentPhotoUrlChange(index, e.target.value)
+              }
+              className="mt-1 p-2 w-full border border-gray-300 rounded mb-2"
+            />
           ))}
           <button
             type="button"
-            onClick={addContentPhoto}
+            onClick={addContentPhotoUrl}
             className="px-4 py-2 bg-blue-500 text-white rounded"
           >
-            Yeni Fotoğraf Ekle
+            Yeni Fotoğraf URL'si Ekle
           </button>
         </div>
         <button
