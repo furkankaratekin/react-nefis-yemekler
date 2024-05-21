@@ -15,6 +15,7 @@ import ListRecipePage from "./pages/ListRecipePage";
 import ListMenuPage from "./pages/ListMenuPage"
 import ProfilePage from "./pages/ProfilePage"
 import CreateRecipePage from "./pages/CreateRecipePage"
+import UpdateRecipePage from "./pages/UpdateRecipePage"
 
 
 import PageNotFoundPage from "./pages/PageNotFoundPage"
@@ -45,6 +46,7 @@ function App() {
         <Route path="/salata" element={<SezarSalataPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/create-recipe" element={<CreateRecipePage />} />
+        <Route path="/update-recipe" element={<UpdateRecipePage />} />
         <Route path="*" element={<PageNotFoundPage />} />
       </Routes>
     </Router>
