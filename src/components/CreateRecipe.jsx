@@ -149,14 +149,14 @@ const CreateRecipe = () => {
             className="mt-1 p-2 w-full border border-gray-300 rounded"
           >
             <option value="">Kategori Seçiniz</option>
-            <option value="category1">Çorbalar</option>
-            <option value="category2">Ana Yemekler</option>
-            <option value="category3">Salatalar</option>
-            <option value="category4">Tatlılar</option>
-            <option value="category5">Aperatifler</option>
-            <option value="category6">Kahvaltılıklar</option>
-            <option value="category7">Diyet Yemekleri</option>
-            <option value="category8">Hamur İşi</option>
+            <option value="corbalar">Çorbalar</option>
+            <option value="ana-yemekler">Ana Yemekler</option>
+            <option value="salatalar">Salatalar</option>
+            <option value="tatlilar">Tatlılar</option>
+            <option value="aperatifler">Aperatifler</option>
+            <option value="kahvaltiliklar">Kahvaltılıklar</option>
+            <option value="diyet-yemekleri">Diyet Yemekleri</option>
+            <option value="hamur-isi">Hamur İşi</option>
           </select>
         </div>
         <div className="mb-4">
