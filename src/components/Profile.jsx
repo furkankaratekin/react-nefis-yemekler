@@ -90,6 +90,12 @@ const Profile = () => {
             >
               Yeni Tarif Oluştur
             </Link>
+            <Link
+              to="/update-recipe"
+              className="px-8 bg-green-600 hover:bg-green-700 text-white py-2 rounded inline-block text-center"
+            >
+              Eklenen tarifleri güncelle veya sil
+            </Link>
           </div>
         </div>
       </div>
