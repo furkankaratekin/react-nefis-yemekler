@@ -1,22 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FaRegTrashAlt } from "react-icons/fa";
+
 
 const Profile = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [userData, setUserData] = useState({});
+  const [favorites, setFavorites] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   useEffect(() => {
     const storedUserData = localStorage.getItem("userData");
+    const token = localStorage.getItem("token");
     if (storedUserData) {
-      setUserData(JSON.parse(storedUserData));
+      const parsedUserData = JSON.parse(storedUserData);
+      setUserData(parsedUserData);
+      fetchFavorites(parsedUserData._id, token);
     } else {
       navigate("/login");
     }
   }, [navigate]);
+
+  const fetchFavorites = async (userId, token) => {
+    try {
+      const response = await axios.get(
+        `https://yemek-api-vercel.onrender.com/api/recipe/favorites/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setFavorites(response.data);
+    } catch (error) {
+      console.error("Error fetching favorite recipes:", error);
+    }
+  };
 
   const handleDelete = async () => {
     const token = localStorage.getItem("token");
@@ -105,17 +127,18 @@ const Profile = () => {
         <div className="w-full lg:w-3/4">
           <h2 className="text-2xl font-bold mb-4">Deftere Eklenen Tarifler</h2>
           <ul className="space-y-4">
-            {userData.favorites_recipes &&
-            userData.favorites_recipes.length > 0 ? (
-              userData.favorites_recipes.map((recipe) => (
-                <li key={recipe.id} className="flex items-center space-x-4">
-                  <img
-                    src={recipe.image}
-                    alt={recipe.name}
-                    className="w-16 h-16 rounded-full"
-                  />
-                  <span className="text-lg">{recipe.name}</span>
-                </li>
+            {favorites.length > 0 ? (
+              favorites.map((recipe) => (
+                <Link to={`/list-recipe/${recipe._id}`}>
+                  <li key={recipe._id} className="flex items-center space-x-4">
+                    <img
+                      src={recipe.picture}
+                      alt={recipe.name}
+                      className="w-16 h-16 rounded-full"
+                    />
+                    <span className="text-lg">{recipe.name}</span>
+                  </li>
+                </Link>
               ))
             ) : (
               <p>No favorite recipes found.</p>
