@@ -1,30 +1,33 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const CategoryRecipe = () => {
-  const [soupRecipes, setSoupRecipes] = useState([]);
+  const { category } = useParams();
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     axios
       .get("https://yemek-api-vercel.onrender.com/api/recipe")
       .then((response) => {
         const filteredRecipes = response.data.filter(
-          (recipe) => recipe.category === "Çorba"
+          (recipe) => recipe.category.toLowerCase() === category
         );
-        setSoupRecipes(filteredRecipes);
+        setRecipes(filteredRecipes);
       })
       .catch((error) => {
         console.error("There was an error fetching the recipes:", error);
       });
-  }, []);
+  }, [category]);
 
   return (
     <section className="text-gray-600 body-font">
-      <h3 className="text-center mt-16 text-3xl font-serif text-blue-950">Çorbalar</h3>
+      <h3 className="text-center mt-16 text-3xl font-serif text-blue-950">
+        {category.charAt(0).toUpperCase() + category.slice(1)}
+      </h3>
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
-          {soupRecipes.map((recipe) => (
+          {recipes.map((recipe) => (
             <div key={recipe._id} className="lg:w-1/4 sm:w-1/2 p-4">
               <Link to={`/list-recipe/${recipe._id}`}>
                 <div className="relative group">

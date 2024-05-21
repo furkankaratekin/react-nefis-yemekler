@@ -32,7 +32,7 @@ function App() {
         <Route path="/category" element={<CategoriesPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/list-category" element={<ListCategoryPage />} />
+        <Route path="/list-category/:category" element={<ListCategoryPage />} />
         <Route path="/list-recipe/:recipeId" element={<ListRecipePage />} />
         <Route path="/list-menu/:menuId" element={<ListMenuPage />} />
         <Route path="/contact" element={<ContactPage />} />
