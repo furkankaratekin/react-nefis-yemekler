@@ -2,14 +2,63 @@ import { useEffect, useState } from "react";
 import React from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ListRecipe = () => {
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [isAdded, setIsAdded] = useState(false);
 
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const token = localStorage.getItem("token");
+
+  const handleAddToFavorites = async () => {
+    try {
+      await axios.post(
+        `https://yemek-api-vercel.onrender.com/api/recipe/favorites/${userData._id}/add`,
+        { recipeId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      toast.success("Başarı ile deftere eklendi");
+      setIsAdded(true);
+    } catch (error) {
+      console.error("Error adding to favorites:", error);
+      toast.error("Deftere ekleme işlemi başarısız oldu");
+    }
+  };
+
+const handleRemoveFromFavorites = async () => {
+  try {
+    await axios.delete(
+      `https://yemek-api-vercel.onrender.com/api/recipe/favorites/${userData._id}/remove`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        data: { recipeId } // Burada `data` anahtarını kullanıyoruz
+      }
+    );
+    toast.success("Başarı ile defterden kaldırıldı");
+    setIsAdded(false);
+  } catch (error) {
+    console.error("Error removing from favorites:", error);
+    toast.error("Defterden kaldırma işlemi başarısız oldu");
+  }
+};
+
+
   const handleClick = () => {
-    setIsAdded(!isAdded);
+    if (isAdded) {
+      handleRemoveFromFavorites();
+    } else {
+      handleAddToFavorites();
+    }
   };
 
   useEffect(() => {
