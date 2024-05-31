@@ -130,7 +130,7 @@ const Profile = () => {
             {favorites.length > 0 ? (
               favorites.map((recipe) => (
                 <Link to={`/list-recipe/${recipe._id}`}>
-                  <li key={recipe._id} className="flex items-center space-x-4">
+                  <li key={recipe._id} className="flex items-center space-x-4 my-2">
                     <img
                       src={recipe.picture}
                       alt={recipe.name}
