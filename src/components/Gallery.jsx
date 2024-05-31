@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Gallery = () => {
+const Gallery = ({ searchQuery }) => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -16,11 +16,15 @@ const Gallery = () => {
       });
   }, []);
 
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
-          {recipes.map((recipe) => (
+          {filteredRecipes.map((recipe) => (
             <div className="lg:w-1/4 sm:w-1/2 p-4" key={recipe._id}>
               <div className="flex relative">
                 <img
