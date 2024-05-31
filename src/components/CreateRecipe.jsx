@@ -88,7 +88,7 @@ const CreateRecipe = () => {
 
       axios
         .post(
-          "https://yemek-api-vercel.onrender.com/api/recipe/add",
+          "https://nefisyemekler-clone-project.onrender.com/api/recipe/add",
           dataToSend,
           {
             headers,

@@ -15,7 +15,7 @@ const ListRecipe = () => {
   const handleAddToFavorites = async () => {
     try {
       await axios.post(
-        `https://yemek-api-vercel.onrender.com/api/recipe/favorites/${userData._id}/add`,
+        `https://nefisyemekler-clone-project.onrender.com/api/recipe/favorites/${userData._id}/add`,
         { recipeId },
         {
           headers: {
@@ -35,13 +35,13 @@ const ListRecipe = () => {
 const handleRemoveFromFavorites = async () => {
   try {
     await axios.delete(
-      `https://yemek-api-vercel.onrender.com/api/recipe/favorites/${userData._id}/remove`,
+      `https://nefisyemekler-clone-project.onrender.com/api/recipe/favorites/${userData._id}/remove`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-        data: { recipeId } // Burada `data` anahtarını kullanıyoruz
+        data: { recipeId }, // Burada `data` anahtarını kullanıyoruz
       }
     );
     toast.success("Başarı ile defterden kaldırıldı");
@@ -63,7 +63,9 @@ const handleRemoveFromFavorites = async () => {
 
   useEffect(() => {
     axios
-      .get(`https://yemek-api-vercel.onrender.com/api/recipe/${recipeId}`)
+      .get(
+        `https://nefisyemekler-clone-project.onrender.com/api/recipe/${recipeId}`
+      )
       .then((response) => {
         setRecipe(response.data);
       })

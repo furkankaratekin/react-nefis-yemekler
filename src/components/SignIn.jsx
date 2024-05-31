@@ -21,7 +21,7 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await axios.post(
-      "https://yemek-api-vercel.onrender.com/api/auth/signin",
+      "https://nefisyemekler-clone-project.onrender.com/api/auth/signin",
       { email, password },
       {
         headers: {

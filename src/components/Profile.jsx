@@ -27,7 +27,7 @@ const Profile = () => {
   const fetchFavorites = async (userId, token) => {
     try {
       const response = await axios.get(
-        `https://yemek-api-vercel.onrender.com/api/recipe/favorites/${userId}`,
+        `https://nefisyemekler-clone-project.onrender.com/api/recipe/favorites/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ const Profile = () => {
     const token = localStorage.getItem("token");
     try {
       await axios.delete(
-        `https://yemek-api-vercel.onrender.com/api/user/delete/${userData._id}`,
+        `https://nefisyemekler-clone-project.onrender.com/api/user/delete/${userData._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

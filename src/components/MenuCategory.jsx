@@ -7,7 +7,7 @@ const MenuCategory = () => {
 
   useEffect(() => {
     axios
-      .get("https://yemek-api-vercel.onrender.com/api/menu")
+      .get("https://nefisyemekler-clone-project.onrender.com/api/menu")
       .then((response) => {
         setMenus(response.data);
       })

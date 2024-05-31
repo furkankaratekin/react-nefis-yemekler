@@ -7,7 +7,7 @@ const Gallery = ({ searchQuery }) => {
 
   useEffect(() => {
     axios
-      .get("https://yemek-api-vercel.onrender.com/api/recipe")
+      .get("https://nefisyemekler-clone-project.onrender.com/api/recipe")
       .then((response) => {
         setRecipes(response.data);
       })

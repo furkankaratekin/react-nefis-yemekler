@@ -9,7 +9,9 @@ const ListMenu = () => {
 
   useEffect(() => {
     axios
-      .get(`https://yemek-api-vercel.onrender.com/api/menu/${menuId}`)
+      .get(
+        `https://nefisyemekler-clone-project.onrender.com/api/menu/${menuId}`
+      )
       .then((response) => {
         setMenu(response.data);
         console.log(response.data); // Menü bilgilerini konsola yazdır
@@ -17,7 +19,9 @@ const ListMenu = () => {
         // Menüdeki her tarif ID'si için tarif bilgilerini çek
         response.data.recipe_ids.forEach((recipeId) => {
           axios
-            .get(`https://yemek-api-vercel.onrender.com/api/recipe/${recipeId}`)
+            .get(
+              `https://nefisyemekler-clone-project.onrender.com/api/recipe/${recipeId}`
+            )
             .then((recipeResponse) => {
               setRecipes((prevRecipes) => ({
                 ...prevRecipes,

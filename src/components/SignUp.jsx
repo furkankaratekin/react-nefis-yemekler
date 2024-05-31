@@ -29,7 +29,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "https://yemek-api-vercel.onrender.com/api/auth/signup",
+        "https://nefisyemekler-clone-project.onrender.com/api/auth/signup",
         { username, email, password },
         {
           headers: {

@@ -22,7 +22,7 @@ const RecipeComment = () => {
   const fetchComments = async (recipeId) => {
     try {
       const response = await axios.get(
-        `https://yemek-api-vercel.onrender.com/api/comment/list-comment/${recipeId}`
+        `https://nefisyemekler-clone-project.onrender.com/api/comment/list-comment/${recipeId}`
       );
       setComments(response.data);
     } catch (error) {
@@ -47,7 +47,7 @@ const RecipeComment = () => {
 
     try {
       const response = await axios.post(
-        "https://yemek-api-vercel.onrender.com/api/comment/add-comment",
+        "https://nefisyemekler-clone-project.onrender.com/api/comment/add-comment",
         {
           recipe_id: recipeId,
           comment: newComment,

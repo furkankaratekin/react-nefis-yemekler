@@ -8,7 +8,7 @@ const CategoryRecipe = () => {
 
   useEffect(() => {
     axios
-      .get("https://yemek-api-vercel.onrender.com/api/recipe")
+      .get("https://nefisyemekler-clone-project.onrender.com/api/recipe")
       .then((response) => {
         const filteredRecipes = response.data.filter(
           (recipe) => recipe.category.toLowerCase() === category
